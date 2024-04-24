@@ -4,11 +4,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: "development",
-    entry: [path.join(__dirname, './src/js/index.js'), path.join(__dirname, './src/sass/style.scss')],
+    entry: [path.join(__dirname, './src/js/index.js'), path.join(__dirname, './src/sass/style.scss'), 'webpack/hot/dev-server'],
     output: {
         filename: "[name].[contenthash:8].js",
         path: path.resolve(__dirname, 'dist'),
-        assetModuleFilename: 'images/[hash:8][ext]',
+        //assetModuleFilename: 'images/[hash:8][ext]',
         clean: true
     },
     module: {
@@ -20,6 +20,20 @@ module.exports = {
             {
                 test: /\.(html)$/,
                 use: ['html-loader']
+            },
+            {
+                test: /\.(woff|woff2|ttf|otf|eot)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/fonts/[name][ext]'
+                }
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg|ico)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/img/[name][ext]'
+                }
             }
         ],
     },
@@ -34,7 +48,8 @@ module.exports = {
     ],
     devtool: 'inline-source-map',
     devServer: {
+        static: './',
+        open: true,
         port: 5000,
-        open: true
     }
 };

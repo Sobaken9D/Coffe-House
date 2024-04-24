@@ -4,14 +4,15 @@
   "description": "educational project to create a website Coffe-House",
   "main": "index.js",
   "scripts": {
-    "build:dev": "webpack --env mode=development",
-    "start": "webpack serve --env mode=development"
+    "build:dev": "webpack --mode development",
+    "start": "webpack serve --mode development"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^7.1.1",
+    "file-loader": "^6.2.0",
     "html-loader": "^5.0.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
