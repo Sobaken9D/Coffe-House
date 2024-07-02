@@ -5,6 +5,7 @@ html {
 body {
     @extend %font-primary;
     background-color: $color-background-body;
+    color: $color-text-darK;
 }
 
 h1 {

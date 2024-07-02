@@ -1,0 +1,30 @@
+.header {
+    &__container {
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: 100px 1fr 72px;
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & > button > img {
+            margin-bottom: -3px;
+        }
+    }
+}
+
+.navigation {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    align-items: center;
+    column-gap: 40px;
+    justify-content: center;
+    @include font($size: 1.6rem, $height: 150%, $weight: 600);
+
+    &__link {
+        color: $color-text-darK;
+        text-decoration: none;
+    }
+}

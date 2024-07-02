@@ -10,20 +10,27 @@
 <body>
     <header class="header">
         <div class="wrapper">
-            <a class="header__logo" href="#">
-                <object data="../img/logo.svg" type="image/svg+xml" class="logo-object">
-                    Your browser does not support SVG
-                </object>
-            </a>
-            <nav class="header__navigation">
-                <ul class="navigation">
-                    <li><a class="navigation__link" href="#">Favorite coffee</a></li>
-                    <li><a class="navigation__link" href="#">About</a></li>
-                    <li><a class="navigation__link" href="#">Mobile app</a></li>
-                    <li><a class="navigation__link" href="#">Contact us</a></li>
-                </ul>
-            </nav>
-            <button class="header__button">Menu</button>
+            <div class="header__container">
+                <a class="header__logo" href="#">
+                    <object data="../img/logo.svg" type="image/svg+xml" class="logo-object">
+                        Your browser does not support SVG
+                    </object>
+                </a>
+                <nav class="header__navigation">
+                    <ul class="navigation">
+                        <li><a class="navigation__link" href="#">Favorite coffee</a></li>
+                        <li><a class="navigation__link" href="#">About</a></li>
+                        <li><a class="navigation__link" href="#">Mobile app</a></li>
+                        <li><a class="navigation__link" href="#">Contact us</a></li>
+                    </ul>
+                </nav>
+                <div class="header__menu">
+                    <button class="header__button">
+                        <span>Menu</span>
+                        <img src="../img/icons/coffee-cup.svg" alt="coffe_cup_ico">
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
     <main>
@@ -35,7 +42,7 @@
                     </h1>
                     <p class="hero__text">
                         With its inviting atmosphere and delicious coffee options, the Coffee House
-                        Resource is a popular destination for coffee lovers and those seeking a warm and inviting space
+                        Resource is a popular destination for coffee lovers dand those seeking a warm and inviting space
                         to enjoy their favorite beverage.
                     </p>
                     <button class="button hero__button">Menu</button>
@@ -162,7 +169,7 @@
                             <li>
                                 <a class="footer-contacts__link" href="#">
                                     <img class="footer-contacts__ico" src="../img/icons/pin-alt.svg" alt="ico_point">
-                                    8558 Green Rd.,  LA
+                                    8558 Green Rd., LA
                                 </a>
                             </li>
                             <li>

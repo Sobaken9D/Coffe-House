@@ -8,8 +8,7 @@ module.exports = {
     output: {
         filename: "[name].[contenthash:8].js",
         path: path.resolve(__dirname, 'dist'),
-        //assetModuleFilename: 'images/[hash:8][ext]',
-        clean: true
+        clean: true,
     },
     module: {
         rules: [
@@ -29,11 +28,11 @@ module.exports = {
                 }
             },
             {
-                test: /\.(jpe?g|png|gif|svg|ico)$/,
-                type: 'asset/resource',
-                generator: {
-                    filename: 'assets/img/[name][ext]'
-                }
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/inline'
+                // generator: {
+                //     filename: 'assets/img/[name][ext]'
+                // }
             }
         ],
     },
@@ -48,8 +47,11 @@ module.exports = {
     ],
     devtool: 'inline-source-map',
     devServer: {
-        static: './',
+        static: {
+            directory: './src',
+            watch: true
+        },
         open: true,
-        port: 5000,
-    }
+        port: 9000,
+    },
 };
