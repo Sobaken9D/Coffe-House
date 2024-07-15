@@ -19,3 +19,12 @@ h2 {
 h4 {
     @include font($size: 2.4rem, $height: 125%, $weight: 600);
 }
+
+.text-highlighted {
+    color: $color-accent;
+    font-style: italic;
+}
+
+object {
+    pointer-events: none;
+}

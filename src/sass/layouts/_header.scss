@@ -21,7 +21,7 @@
     align-items: center;
     column-gap: 40px;
     justify-content: center;
-    @include font($size: 1.6rem, $height: 150%, $weight: 600);
+    @include font($size: 1.6rem, $height: 200%, $weight: 600);
 
     &__link {
         color: $color-text-darK;

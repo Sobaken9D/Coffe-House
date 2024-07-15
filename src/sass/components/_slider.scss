@@ -1,0 +1,76 @@
+.slider__wrapper {
+    margin-top: 100px;
+}
+
+.slider__title {
+    text-align: center;
+}
+
+.slider__container {
+    margin-top: 20px;
+}
+
+.slider__container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.slider__image {
+    margin-top: 20px;
+}
+
+.button-arrow {
+    position: absolute;
+    top: calc(50% + 10px);
+    transform: translateY(-50%);
+    &_left {
+        left: 4px;
+    }
+    &_right {
+        right: 4px;
+    }
+}
+
+.slider-item {
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.slider__info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.drink {
+    &__title {
+        @include font($size: 2.4rem, $height: 125%, $weight: 600);
+    }
+    &__description {
+        @include font($size: 1.6rem, $height: 150%, $weight: 400);
+    }
+    &__price {
+        @include font($size: 2.4rem, $height: 125%, $weight: 600);
+    }
+}
+
+.slider__counter {
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+    & > * {
+        width: 40px;
+        height: 4px;
+        border-radius: 100px;
+        background-color: $color-background-container;
+    }
+}

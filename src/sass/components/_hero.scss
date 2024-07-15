@@ -1,0 +1,19 @@
+.hero__wrapper {
+    margin-top: 20px;
+    background-image: url("../img/hero/img-hero.jpg");
+    background-position: center center;
+    border-radius: 40px;
+}
+
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    padding: 100px 0 100px 100px;
+    max-width: 530px;
+    color: $color-text-light;
+}
+
+.hero__text {
+    @include font($size: 1.6rem, $height: 150%, $weight: 400);
+}

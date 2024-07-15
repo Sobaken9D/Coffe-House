@@ -1,10 +1,12 @@
 button {
+    background: none;
+    border: none;
     color: $color-text-darK;
     @include font($size: 1.6rem, $height: 150%, $weight: 600);
     cursor: pointer;
 }
 
-.header__button {
+.header-button {
     background: none;
     border: none;
     padding: 0;
@@ -23,3 +25,51 @@ button {
         width: 100%;
     }
 }
+
+.hero-button {
+    width: 200px;
+    height: 64px;
+    background-color: $color-text-light;
+    border-radius: 100px;
+    &:hover > .hero-button__text {
+        margin-left: -14px;
+    }
+    &:hover > .hero-button__text:after {
+        content: url("../img/icons/coffee-cup.svg");
+        opacity: 1;
+    }
+}
+
+.hero-button__text {
+    @extend %transition;
+    position: relative;
+    &:after {
+        @extend %transition;
+        opacity: 0;
+        position: absolute;
+        content: '';
+        left: calc(100% + 8px);
+    }
+}
+
+object {
+    cursor: pointer;
+}
+
+.button-arrow {
+    @extend %transition;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $color-border-dark;
+    border-radius: 100%;
+    &:hover {
+        background-color: $color-background-container;
+    }
+    &:hover object {
+        filter: brightness(0) saturate(100%) invert(90%) sepia(5%) saturate(612%) hue-rotate(350deg) brightness(98%) contrast(88%);
+    }
+}
+

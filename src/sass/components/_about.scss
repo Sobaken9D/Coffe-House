@@ -1,0 +1,36 @@
+.about__wrapper {
+    margin-top: calc(100px + 45px);
+}
+
+.about__container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: calc(590px + 40px + 430px);
+    gap: 40px;
+}
+
+.about__image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 660px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.image-box {
+    &_1 {
+        height: 590px;
+    }
+    &_2 {
+        height: 430px;
+    }
+    &_3 {
+        height: 430px;
+    }
+    &_4 {
+        height: 590px;
+    }
+}
