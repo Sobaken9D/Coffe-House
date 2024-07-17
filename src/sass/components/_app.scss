@@ -57,13 +57,24 @@
     text-decoration: none;
     color: $color-text-darK;
     @extend %transition;
-    &:hover {
+    &:active {
         background-color: $color-background-container;
         .source__info {
             color: $color-text-light;
         }
         .source__object {
             filter: brightness(0) saturate(100%) invert(90%) sepia(5%) saturate(612%) hue-rotate(350deg) brightness(98%) contrast(88%);
+        }
+    }
+    @include hovered-devices {
+        &:hover {
+            background-color: $color-background-container;
+            .source__info {
+                color: $color-text-light;
+            }
+            .source__object {
+                filter: brightness(0) saturate(100%) invert(90%) sepia(5%) saturate(612%) hue-rotate(350deg) brightness(98%) contrast(88%);
+            }
         }
     }
 }

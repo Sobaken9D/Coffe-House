@@ -78,7 +78,14 @@
     }
 }
 
-.about__image-box:hover::before {
+.about__image-box:active::before {
     transform: scale(1);
 }
+
+@include hovered-devices {
+    .about__image-box:hover::before {
+        transform: scale(1);
+    }
+}
+
 

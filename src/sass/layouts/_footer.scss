@@ -49,11 +49,20 @@
 
 .social-networks__link {
     @extend %transition;
-    &:hover {
+    &:active {
         border: 1px solid $color-text-light;
         background-color: $color-text-light;
         .social-networks__object {
             filter: brightness(0) saturate(100%) invert(23%) sepia(4%) saturate(343%) hue-rotate(22deg) brightness(98%) contrast(94%);
+        }
+    }
+    @include hovered-devices {
+        &:hover {
+            border: 1px solid $color-text-light;
+            background-color: $color-text-light;
+            .social-networks__object {
+                filter: brightness(0) saturate(100%) invert(23%) sepia(4%) saturate(343%) hue-rotate(22deg) brightness(98%) contrast(94%);
+            }
         }
     }
 }
@@ -96,7 +105,12 @@
         background-color: $color-text-light;
         @extend %transition;
     }
-    &:hover:after {
+    &:active:after {
         width: 100%;
+    }
+    @include hovered-devices {
+        &:hover:after {
+            width: 100%;
+        }
     }
 }

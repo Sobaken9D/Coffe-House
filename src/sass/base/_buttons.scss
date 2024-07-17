@@ -21,8 +21,13 @@ button {
         background-color: $color-text-darK;
         @extend %transition;
     }
-    &:hover:after {
+    &:active:after {
         width: 100%;
+    }
+    @include hovered-devices {
+        &:hover:after {
+            width: 100%;
+        }
     }
 }
 
@@ -31,12 +36,21 @@ button {
     height: 64px;
     background-color: $color-text-light;
     border-radius: 100px;
-    &:hover > .hero-button__text {
+    &:active > .hero-button__text {
         margin-left: -14px;
     }
-    &:hover > .hero-button__text:after {
+    &:active > .hero-button__text:after {
         content: url("../img/icons/coffee-cup.svg");
         opacity: 1;
+    }
+    @include hovered-devices {
+        &:hover > .hero-button__text {
+            margin-left: -14px;
+        }
+        &:hover > .hero-button__text:after {
+            content: url("../img/icons/coffee-cup.svg");
+            opacity: 1;
+        }
     }
 }
 
@@ -65,11 +79,19 @@ object {
     justify-content: center;
     border: 1px solid $color-border-dark;
     border-radius: 100%;
-    &:hover {
+    &:active {
         background-color: $color-background-container;
     }
-    &:hover object {
+    &:active object {
         filter: brightness(0) saturate(100%) invert(90%) sepia(5%) saturate(612%) hue-rotate(350deg) brightness(98%) contrast(88%);
+    }
+    @include hovered-devices {
+        &:hover {
+            background-color: $color-background-container;
+        }
+        &:hover object {
+            filter: brightness(0) saturate(100%) invert(90%) sepia(5%) saturate(612%) hue-rotate(350deg) brightness(98%) contrast(88%);
+        }
     }
 }
 
