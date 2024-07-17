@@ -1,5 +1,6 @@
 html {
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -10,10 +11,16 @@ body {
 
 h1 {
     @include font($size: 7.2rem, $height: 105%, $weight: 600);
+    @include media-tablet-content-width {
+        @include font($size: 4.2rem, $height: 115%, $weight: 600);
+    }
 }
 
 h2 {
     @include font($size: 6rem, $height: 125%, $weight: 600);
+    @include media-tablet-content-width {
+        @include font($size: 3.2rem, $height: 125%, $weight: 600);
+    }
 }
 
 h4 {

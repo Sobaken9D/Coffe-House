@@ -5,6 +5,16 @@
 .app__container {
     display: flex;
     justify-content: space-between;
+    @include media-breakpoint-1100px {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    @include media-tablet-width {
+        gap: 100px;
+    }
+    @include media-tablet-content-width {
+        gap: 40px;
+    }
 }
 
 .app__info {
@@ -13,6 +23,13 @@
     row-gap: 40px;
     max-width: 630px;
     margin-top: 144px;
+    @include media-container {
+        margin-top: 5%;
+    }
+    @include media-tablet-width {
+        margin-top: 0;
+        max-width: 100%;
+    }
 }
 
 .app__text {
@@ -22,6 +39,9 @@
 .app__links {
     display: flex;
     gap: 20px;
+    @include media-mobile-width {
+        flex-wrap: wrap;
+    }
 }
 
 .app__source {
@@ -58,4 +78,9 @@
 
 .source__object {
     margin-left: 20px;
+}
+
+.app__image {
+    width: 100%;
+    height: auto;
 }

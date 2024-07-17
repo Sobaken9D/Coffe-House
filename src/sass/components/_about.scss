@@ -4,18 +4,20 @@
 
 .about__container {
     margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     max-height: calc(590px + 40px + 430px);
     gap: 40px;
+    @include media-tablet-width {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        max-height: 1710px;
+    }
 }
 
 .about__image-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 660px;
+    position: relative;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -26,11 +28,57 @@
     }
     &_2 {
         height: 430px;
+        @include media-tablet-width {
+            display: none;
+        }
     }
     &_3 {
         height: 430px;
+        @include media-tablet-width {
+            display: none;
+        }
     }
     &_4 {
         height: 590px;
+        margin-top: -160px;
+        @include media-tablet-width {
+            margin-top: 0;
+        }
     }
 }
+
+.about__image-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @extend %transition;
+    transform: scale(1.1);
+}
+
+.image-box {
+    &_1::before {
+        background-image: url("../img/about/about-1.jpg");
+    }
+    &_2::before {
+        background-image: url("../img/about/about-3.jpg");
+    }
+    &_3::before {
+        height: 430px;
+        background-image: url("../img/about/about-2.jpg");
+    }
+    &_4::before {
+        height: 590px;
+        background-image: url("../img/about/about-4.jpg");
+    }
+}
+
+.about__image-box:hover::before {
+    transform: scale(1);
+}
+

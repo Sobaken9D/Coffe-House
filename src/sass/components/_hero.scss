@@ -1,8 +1,22 @@
+.hero {
+    @include media-container {
+        padding: 0 40px;
+    }
+    @include media-mobile-width {
+        padding: 0 16px;
+    }
+}
+
 .hero__wrapper {
     margin-top: 20px;
     background-image: url("../img/hero/img-hero.jpg");
     background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
     border-radius: 40px;
+    @include media-container {
+        padding: 0;
+    }
 }
 
 .hero__content {
@@ -12,6 +26,12 @@
     padding: 100px 0 100px 100px;
     max-width: 530px;
     color: $color-text-light;
+    @include media-tablet-width {
+        padding: 100px 100px 100px 60px;
+    }
+    @include media-tablet-content-width {
+        padding: 60px 16px;
+    }
 }
 
 .hero__text {
