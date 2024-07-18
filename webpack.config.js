@@ -38,7 +38,12 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: path.resolve(__dirname, 'src', 'pages', 'MainPage.html'),
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'SidePage.html',
+            template: path.resolve(__dirname, 'src', 'pages', 'SidePage.html'),
         }),
         new MiniCssExtractPlugin({
             filename: "css/[name].[contenthash:8].css",

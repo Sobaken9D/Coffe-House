@@ -1,4 +1,5 @@
 button {
+    @extend %transition;
     background: none;
     border: none;
     color: $color-text-darK;
@@ -55,7 +56,6 @@ button {
 }
 
 .hero-button__text {
-    @extend %transition;
     position: relative;
     &:after {
         @extend %transition;
@@ -71,7 +71,6 @@ object {
 }
 
 .button-arrow {
-    @extend %transition;
     width: 60px;
     height: 60px;
     display: flex;
@@ -85,6 +84,45 @@ object {
     &:active object {
         filter: brightness(0) saturate(100%) invert(90%) sepia(5%) saturate(612%) hue-rotate(350deg) brightness(98%) contrast(88%);
     }
+    @include hovered-devices {
+        &:hover {
+            background-color: $color-background-container;
+        }
+        &:hover object {
+            filter: brightness(0) saturate(100%) invert(90%) sepia(5%) saturate(612%) hue-rotate(350deg) brightness(98%) contrast(88%);
+        }
+    }
+}
+
+.button__category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-width: 90px;
+    height: 46px;
+    border: 1px solid $color-border-light;
+    border-radius: 100px;
+    padding: 8px 16px 8px 8px;
+}
+
+.button__category_active {
+    color: $color-text-light;
+    background-color: $color-background-container;
+    & > .image-background {
+        background-color: $color-background-body;
+    }
+}
+
+.button__refresh {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $color-border-dark;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
     @include hovered-devices {
         &:hover {
             background-color: $color-background-container;
