@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "type": "coffe",
+    "title": "Irish coffee",
+    "description": "Fragrant black coffee with Jameson Irish whiskey and whipped milk",
+    "urlToImage": "../img/menu/coffe/coffee-1.jpg",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Cinnamon", "Syrup"],
+    "price": "$7.00"
+  },
+  {
+    "id": 2,
+    "type": "coffe",
+    "title": "Kahlua coffee",
+    "description": "Classic coffee with milk and Kahlua liqueur under a cap of frothed milk",
+    "urlToImage": "../img/menu/coffe/coffee-2.jpg",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Cinnamon", "Syrup"],
+    "price": "$7.00"
+  },
+  {
+    "id": 3,
+    "type": "coffe",
+    "title": "Honey raf",
+    "description": "Espresso with frothed milk, cream and aromatic honey",
+    "urlToImage": "../img/menu/coffe/coffee-3.jpg",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Cinnamon", "Syrup"],
+    "price": "$5.50"
+  },
+  {
+    "id": 4,
+    "type": "coffe",
+    "title": "Ice cappuccino",
+    "description": "Cappuccino with soft thick foam in summer version with ice",
+    "urlToImage": "../img/menu/coffe/coffee-4.jpg",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Cinnamon", "Syrup"],
+    "price": "$5.00"
+  },
+  {
+    "id": 5,
+    "type": "coffe",
+    "title": "Espresso",
+    "description": "Classic black coffee",
+    "urlToImage": "../img/menu/coffe/coffee-5.jpg",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Cinnamon", "Syrup"],
+    "price": "$4.50"
+  },
+  {
+    "id": 6,
+    "type": "coffe",
+    "title": "Latte",
+    "description": "Espresso coffee with the addition of steamed milk and dense milk foam",
+    "urlToImage": "../img/menu/coffe/coffee-6.jpg",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Cinnamon", "Syrup"],
+    "price": "$5.50"
+  },
+  {
+    "id": 7,
+    "type": "coffe",
+    "title": "Latte macchiato",
+    "description": "Espresso with frothed milk and chocolate",
+    "urlToImage": "../img/menu/coffe/coffee-7.jpg",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Cinnamon", "Syrup"],
+    "price": "$5.50"
+  },
+  {
+    "id": 8,
+    "type": "coffe",
+    "title": "Coffee with cognac",
+    "description": "Fragrant black coffee with cognac and whipped cream",
+    "urlToImage": "../img/menu/coffe/coffee-8.jpg",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Cinnamon", "Syrup"],
+    "price": "$6.50"
+  },
+  {
+    "id": 9,
+    "type": "tea",
+    "title": "Moroccan",
+    "description": "Fragrant black tea with the addition of tangerine, cinnamon, honey, lemon and mint",
+    "urlToImage": "../img/menu/tea/tea-1.png",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Lemon", "Syrup"],
+    "price": "$4.50"
+  },
+  {
+    "id": 10,
+    "type": "tea",
+    "title": "Ginger",
+    "description": "Original black tea with fresh ginger, lemon and honey",
+    "urlToImage": "../img/menu/tea/tea-2.png",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Lemon", "Syrup"],
+    "price": "$5.00"
+  },
+  {
+    "id": 11,
+    "type": "tea",
+    "title": "Cranberry",
+    "description": "Invigorating black tea with cranberry and honey",
+    "urlToImage": "../img/menu/tea/tea-3.png",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Lemon", "Syrup"],
+    "price": "$5.00"
+  },
+  {
+    "id": 12,
+    "type": "tea",
+    "title": "Sea buckthorn",
+    "description": "Toning sweet black tea with sea buckthorn, fresh thyme and cinnamon",
+    "urlToImage": "../img/menu/tea/tea-4.png",
+    "size": ["200 ml", "300 ml", "400 ml"],
+    "additives": ["Sugar", "Lemon", "Syrup"],
+    "price": "$5.50 "
+  },
+  {
+    "id": 13,
+    "type": "dessert",
+    "title": "Marble cheesecake",
+    "description": "Philadelphia cheese with lemon zest on a light sponge cake and red currant jam",
+    "urlToImage": "../img/menu/desserts/dessert-1.png",
+    "size": ["50 g", "100 g", "200 g"],
+    "additives": ["Berries", "Nuts", "Jam"],
+    "price": "$3.50"
+  },
+  {
+    "id": 14,
+    "type": "dessert",
+    "title": "Red velvet",
+    "description": "Layer cake with cream cheese frosting",
+    "urlToImage": "../img/menu/desserts/dessert-2.png",
+    "size": ["50 g", "100 g", "200 g"],
+    "additives": ["Berries", "Nuts", "Jam"],
+    "price": "$4.00"
+  },
+  {
+    "id": 15,
+    "type": "dessert",
+    "title": "Cheesecakes",
+    "description": "Soft cottage cheese pancakes with sour cream and fresh berries and sprinkled with powdered sugar",
+    "urlToImage": "../img/menu/desserts/dessert-3.png",
+    "size": ["50 g", "100 g", "200 g"],
+    "additives": ["Berries", "Nuts", "Jam"],
+    "price": "$4.50"
+  },
+  {
+    "id": 16,
+    "type": "dessert",
+    "title": "Creme brulee",
+    "description": "Delicate creamy dessert in a caramel basket with wild berries",
+    "urlToImage": "../img/menu/desserts/dessert-4.png",
+    "size": ["50 g", "100 g", "200 g"],
+    "additives": ["Berries", "Nuts", "Jam"],
+    "price": "$4.00"
+  },
+  {
+    "id": 17,
+    "type": "dessert",
+    "title": "Pancakes",
+    "description": "Tender pancakes with strawberry jam and fresh strawberries",
+    "urlToImage": "../img/menu/desserts/dessert-5.png",
+    "size": ["50 g", "100 g", "200 g"],
+    "additives": ["Berries", "Nuts", "Jam"],
+    "price": "$4.50"
+  },
+  {
+    "id": 18,
+    "type": "dessert",
+    "title": "Honey cake",
+    "description": "Classic honey cake with delicate custard",
+    "urlToImage": "../img/menu/desserts/dessert-6.png",
+    "size": ["50 g", "100 g", "200 g"],
+    "additives": ["Berries", "Nuts", "Jam"],
+    "price": "$4.50"
+  },
+  {
+    "id": 19,
+    "type": "dessert",
+    "title": "Chocolate cake",
+    "description": "Cake with hot chocolate filling and nuts with dried apricots",
+    "urlToImage": "../img/menu/desserts/dessert-7.png",
+    "size": ["50 g", "100 g", "200 g"],
+    "additives": ["Berries", "Nuts", "Jam"],
+    "price": "$5.50"
+  },
+  {
+    "id": 20,
+    "type": "dessert",
+    "title": "Black forest",
+    "description": "A combination of thin sponge cake with cherry jam and light chocolate mousse",
+    "urlToImage": "../img/menu/desserts/dessert-8.png",
+    "size": ["50 g", "100 g", "200 g"],
+    "additives": ["Berries", "Nuts", "Jam"],
+    "price": "$6.50"
+  }
+]
