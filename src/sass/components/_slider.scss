@@ -15,14 +15,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    //@include media-tablet-content-width {
-    //    align-items: stretch;
-    //}
 }
 
 .slider__image {
     margin-top: 20px;
-    width: 100%;
+    //width: 100%;
 }
 
 .button-arrow {
@@ -38,6 +35,16 @@
     @include media-tablet-content-width {
         display: none;
     }
+}
+
+.current-slide {
+    max-width: 480px;
+    overflow: hidden;
+}
+
+.slider-items {
+    transition: all 0.5s ease-out;
+    display: flex;
 }
 
 .slider-item {
@@ -75,9 +82,28 @@
     flex-direction: row;
     column-gap: 12px;
     & > * {
+        cursor: pointer;
         width: 40px;
         height: 4px;
         border-radius: 100px;
+        background-color: $color-border-light;
+    }
+}
+
+.counter__line {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 4px;
         background-color: $color-background-container;
+        @extend %transition;
+        border-radius: 100px;
+    }
+    &:hover:after {
+        width: 100%;
     }
 }

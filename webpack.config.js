@@ -4,7 +4,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: "development",
-    entry: [path.join(__dirname, './src/js/index.js'), path.join(__dirname, './src/sass/style.scss'), 'webpack/hot/dev-server'],
+    entry: {
+        mainPage: [path.join(__dirname, './src/js/mainPage.js'), path.join(__dirname, './src/sass/style.scss')],
+        menuPage: [path.join(__dirname, './src/js/menuPage.js'), path.join(__dirname, './src/sass/style.scss')],
+    },
     output: {
         filename: "[name].[contenthash:8].js",
         path: path.resolve(__dirname, 'dist'),
@@ -40,10 +43,14 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, 'src', 'pages', 'MainPage.html'),
+            chunks: ['mainPage']
+            // chunks: [path.join(__dirname, './src/js/mainPage.js')]
         }),
         new HtmlWebpackPlugin({
             filename: 'SidePage.html',
             template: path.resolve(__dirname, 'src', 'pages', 'SidePage.html'),
+            chunks: ['menuPage']
+            // chunks: [path.join(__dirname, './src/js/menuPage.js')]
         }),
         new MiniCssExtractPlugin({
             filename: "css/[name].[contenthash:8].css",

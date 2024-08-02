@@ -1,5 +1,3 @@
-// import {Modal} from "./Modules/Modal.js";
-// let dataItems = Modal.data;
 import dataItems from '../JSON/data.json';
 import {CatalogItem} from "./Modules/CatalogItem";
 import {Modal} from "./Modules/Modal";
