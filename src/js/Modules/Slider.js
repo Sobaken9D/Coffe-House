@@ -1,5 +1,6 @@
 export class Slider {
-    constructor(data, {autoSlide = true, timeAutoSlide = 5000}) {
+    constructor(data, {autoSlide = true, timeAutoSlide = 3000}) {
+        // Build variables
         this.sliderWrapper = "";
         this.sliderContainer = "";
         this.sliderButtonPrev = "";
@@ -7,11 +8,24 @@ export class Slider {
         this.sliderItems = "";
         this.currentSlide = "";
         this.sliderCounter = "";
+        this.clickPrevOrNextButton = true;
+
         this.sliderCount = 0;
 
+        // Data variables
         this.data = data;
+
+        // Auto-slide variables
         this.autoSlide = autoSlide;
         this.timeAutoSlide = timeAutoSlide;
+
+        // Touch and mouse variables
+        this.isDragging = 0;
+        this.startPos = 0;
+        this.currentTranslate = 0;
+        this.prevTranslate = 0;
+        this.animationID = 0;
+        this.currentIndex = 0;
     }
 
     renderSlider() {
@@ -39,12 +53,12 @@ export class Slider {
         this.sliderWrapper.append(this.sliderContainer);
         // Add buttons handler
         this.buildEvents();
-        // Add auto slide
-        // if (this.autoSlide) {
-        //     this.addAutoSlide();
-        // }
-        //Add counters handler
-        this.addCountersHandler();
+        this.addCountersProgress();
+        // Timer slider
+        this.addAutoSlide();
+        // Add touch and mouse events
+        this.addTouchEvents();
+
     }
 
     getSliderWrapper() {
@@ -71,7 +85,9 @@ export class Slider {
     createCounterBlock() {
         let counterBlock = this.createDomNode("div", "slider__counter", "counter");
         for (let i = 0; i < this.data.length; i++) {
+            let progressBar = this.createDomNode("div", "counter__progress-bar");
             let counterLine = this.createDomNode("div", "counter__line");
+            counterLine.append(progressBar);
             counterBlock.append(counterLine);
         }
         return counterBlock;
@@ -109,19 +125,25 @@ export class Slider {
     }
 
     prevSlide() {
+        this.clickPrevOrNextButton = true;
+        clearInterval(this.interval);
         this.sliderCount--;
         if (this.sliderCount < 0) {
             this.sliderCount = this.data.length - 1;
         }
         this.rollSlider();
+        this.addAutoSlide();
     }
 
     nextSlide() {
+        this.clickPrevOrNextButton = true;
+        clearInterval(this.interval);
         this.sliderCount++;
         if (this.sliderCount >= this.data.length) {
             this.sliderCount = 0;
         }
         this.rollSlider();
+        this.addAutoSlide();
     }
 
     rollSlider() {
@@ -130,13 +152,157 @@ export class Slider {
     }
 
     addAutoSlide() {
-        setInterval(() => {
+        this.interval = setInterval(() => {
             this.nextSlide();
-        }, this.timeAutoSlide)
+        }, this.timeAutoSlide);
+        this.addCountersProgress();
     }
 
-    addCountersHandler() {
-        // let arrCounters = Array.from(this.sliderCounter.children);
-        // arrCounters[0].
+    addCountersProgress() {
+        let arrCounters = Array.from(this.sliderCounter.children);
+        let currentCounter = arrCounters[this.sliderCount].firstChild;
+        let counterWidth = 0;
+
+        let interval = setInterval(() => {
+            if (this.clickPrevOrNextButton || counterWidth > 100) {
+                clearInterval(interval);
+                this.clickPrevOrNextButton = false;
+                let decreaseInterval = setInterval(() => {
+                    if (counterWidth <= 0) {
+                        clearInterval(decreaseInterval);
+                    } else {
+                        counterWidth--;
+                        currentCounter.style.width = `${counterWidth}%`;
+                    }
+                }, 1);
+            }else if (this.isDragging) {
+                clearInterval(interval);
+            }
+            else {
+                counterWidth++;
+                currentCounter.style.width = `${counterWidth}%`;
+            }
+        }, this.timeAutoSlide / 100);
+    }
+
+    addTouchEvents() {
+        let slides = Array.from(document.querySelectorAll(".slider-item"));
+        slides.forEach((slide, index) => {
+            let slideImage = slide.querySelector("img");
+            slideImage.addEventListener("dragstart", (e) => e.preventDefault());
+
+            slide.addEventListener("touchstart", this.touchStart(index));
+            slide.addEventListener("touchend", this.touchEnd.bind(this));
+            slide.addEventListener("touchmove", this.touchMove.bind(this));
+
+            slide.addEventListener("mousedown", this.touchStart(index));
+            slide.addEventListener("mouseup", this.touchEnd.bind(this));
+            slide.addEventListener("mouseleave", this.touchEnd.bind(this));
+            slide.addEventListener("mousemove", this.touchMove.bind(this));
+        })
+    }
+
+    touchStart(index) {
+        return (event) => {
+            clearInterval(this.interval);
+
+            this.isDragging = true;
+            this.currentIndex = index;
+            this.startPos = this.getPositionX(event);
+
+            this.animationID = requestAnimationFrame(this.animation);
+        }
+    }
+
+    touchMove(event) {
+        if (this.isDragging) {
+            let currentPosition = this.getPositionX(event);
+            this.currentTranslate = this.prevTranslate + currentPosition - this.startPos;
+        }
+    }
+
+    touchEnd(event) {
+        this.isDragging = false;
+        cancelAnimationFrame(this.animationID);
+
+        let movedBy = this.currentTranslate - this.prevTranslate;
+
+        // this.deletePrevProgressBar();
+
+        if (movedBy < -100) {
+            this.deletePrevProgressBar();
+
+            this.sliderCount += 1;
+
+            if (this.sliderCount >= this.data.length) {
+                this.sliderCount = 0;
+            }
+
+            this.addAutoSlide();
+
+        }
+        else if (movedBy > 100) {
+            this.deletePrevProgressBar();
+
+            this.sliderCount -= 1;
+
+            if (this.sliderCount < 0) {
+                this.sliderCount = this.data.length - 1;
+            }
+
+            this.addAutoSlide();
+        } else {
+            this.continueCurrentProgressBar();
+        }
+
+        // this.addAutoSlide();
+
+        this.setPositionByIndex();
+    }
+
+    animation = () => {
+        this.setSliderPosition();
+        if (this.isDragging) {
+            requestAnimationFrame(this.animation);
+        }
+    }
+
+    setSliderPosition() {
+        let slider = document.querySelector(".slider-items");
+
+        slider.style.transform = `translateX(${this.currentTranslate}px)`;
+    }
+
+    getPositionX(event) {
+        return event.type.includes("mouse") ? event.clientX : event.touches[0].clientX;
+    }
+
+    setPositionByIndex() {
+        let sliderWidth = document.querySelector(".slider-item").offsetWidth;
+        this.currentTranslate = this.sliderCount * -sliderWidth;
+        this.prevTranslate = this.currentTranslate;
+        this.setSliderPosition();
+    }
+
+    deletePrevProgressBar() {
+        let arrCounters = Array.from(this.sliderCounter.children);
+        let currentCounter = arrCounters[this.sliderCount].firstChild;
+        let counterWidth = (currentCounter.style.width).slice(0, -1);
+
+        let decreaseInterval = setInterval(() => {
+            if (counterWidth <= 0) {
+                clearInterval(decreaseInterval);
+            } else {
+                counterWidth--;
+                currentCounter.style.width = `${counterWidth}%`;
+            }
+        }, 1);
+    }
+
+    continueCurrentProgressBar() {
+        let arrCounters = Array.from(this.sliderCounter.children);
+        let currentCounter = arrCounters[this.sliderCount].firstChild;
+        let counterWidth = (currentCounter.style.width).slice(0, -1);
+        console.log(counterWidth);
     }
 }

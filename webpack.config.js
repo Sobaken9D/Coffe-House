@@ -64,6 +64,6 @@ module.exports = {
             watch: true
         },
         open: true,
-        port: 9000,
+        port: 8000,
     },
 };

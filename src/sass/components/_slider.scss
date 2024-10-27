@@ -90,20 +90,9 @@
     }
 }
 
-.counter__line {
-    position: relative;
-    &:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 4px;
-        background-color: $color-background-container;
-        @extend %transition;
-        border-radius: 100px;
-    }
-    &:hover:after {
-        width: 100%;
-    }
+.counter__progress-bar {
+    height: inherit;
+    border-radius: 100px;
+    background-color: $color-background-container;
+    width: 0;
 }
