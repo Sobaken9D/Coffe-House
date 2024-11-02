@@ -1,6 +1,7 @@
 const path = require("node:path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: "development",
@@ -9,7 +10,7 @@ module.exports = {
         menuPage: [path.join(__dirname, './src/js/menuPage.js'), path.join(__dirname, './src/sass/style.scss')],
     },
     output: {
-        filename: "[name].[contenthash:8].js",
+        filename: "[name].js",
         path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
@@ -32,16 +33,16 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/inline'
-                // generator: {
-                //     filename: 'assets/img/[name][ext]'
-                // }
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/img/[name][ext]'
+                }
             }
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: 'index.html',
+            filename: 'MainPage.html',
             template: path.resolve(__dirname, 'src', 'pages', 'MainPage.html'),
             chunks: ['mainPage']
             // chunks: [path.join(__dirname, './src/js/mainPage.js')]
@@ -55,6 +56,12 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "css/[name].[contenthash:8].css",
             chunkFilename: "css/[name].[contenthash:8].css",
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: "src/img/slider", to: "assets/img/slider" },
+                { from: "src/img/menu", to: "assets/img/menu" },
+            ],
         })
     ],
     devtool: 'inline-source-map',

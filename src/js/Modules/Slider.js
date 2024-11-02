@@ -74,7 +74,7 @@ export class Slider {
     createButton(direction) {
         let button = this.createDomNode("button", "button", "button-arrow", `button-arrow_${direction}`);
         let object = `
-            <object data="../img/icons/arrow-${direction}.svg" type="image/svg+xml" class="button-arrow-object">
+            <object data="assets/img/slider/arrow-${direction}.svg" type="image/svg+xml" class="button-arrow-object">
                 Your browser does not support SVG
             </object>
         `;
@@ -227,7 +227,6 @@ export class Slider {
 
         let movedBy = this.currentTranslate - this.prevTranslate;
 
-        // this.deletePrevProgressBar();
 
         if (movedBy < -100) {
             this.deletePrevProgressBar();
@@ -303,6 +302,5 @@ export class Slider {
         let arrCounters = Array.from(this.sliderCounter.children);
         let currentCounter = arrCounters[this.sliderCount].firstChild;
         let counterWidth = (currentCounter.style.width).slice(0, -1);
-        console.log(counterWidth);
     }
 }
